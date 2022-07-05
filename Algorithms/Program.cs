@@ -17,8 +17,7 @@ var list = new List<string>
     "1", "dsd", "2","sam","3",
     "month", "4", "all", "5"
 };
-var thirdService = new ThirdService<string>();
-var resultList = thirdService.RemoveOddElements(list);//dsd sam month all
+var resultList = ThirdService<string>.RemoveOddElements(list);//dsd sam month all
 foreach (var item in resultList)
 {
     Console.WriteLine(item);
