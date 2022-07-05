@@ -10,7 +10,7 @@ namespace Store.Domain
     {
         public Guid ProductId { get; set; }
         public string ProductName { get; set; }
-        public string Description { get; set; }
-        public IList<Store> Stores { get; set; }
+        public string? Description { get; set; }
+        public IList<Shop> Shops { get; set; }
     }
 }
