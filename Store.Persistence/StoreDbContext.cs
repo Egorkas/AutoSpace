@@ -13,7 +13,7 @@ namespace Store.Persistence
     public class StoreDbContext : DbContext, IStoreDbContext
     {
         public DbSet<Shop> Shops { get ; set; }
-        public DbSet<Shop> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
         public StoreDbContext(DbContextOptions<StoreDbContext> options)
             : base(options) { }
 
