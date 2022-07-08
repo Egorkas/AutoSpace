@@ -11,8 +11,8 @@ namespace Store.Domain
         public Guid ShopId { get; set; }
         public string ShopName { get; set; }
         public string ShopAddress { get; set; }
-        public TimeOnly OpeningTime { get; set; }
-        public TimeOnly ClosingTime { get; set; }
+        public DateTime OpeningTime { get; set; }
+        public DateTime ClosingTime { get; set; }
         public IList<Product> Products { get; set; }
     }
 }

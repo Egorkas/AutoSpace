@@ -13,6 +13,16 @@ namespace Store.Web.Controllers
                 ShopId = id
             };
             var products = await Mediator.Send(query);
+
+            return View(products);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var query = new GetProductQuery();
+            var products = await Mediator.Send(query);
+
             return View(products);
         }
     }

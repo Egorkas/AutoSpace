@@ -9,13 +9,11 @@ namespace Store.Application.Shops.Queries
         public Guid ShopId { get; set; }
         public string ShopName { get; set; }
         public string ShopAddress { get; set; }
-        public TimeOnly OpeningTime { get; set; }
-        public TimeOnly ClosingTime { get; set; }
-        //public IList<Product> Products { get; set; }
+        public DateTime OpeningTime { get; set; }
+        public DateTime ClosingTime { get; set; }
 
         public void Mapping(Profile profile)
         {
-            //profile.CreateMap<Shop, ShopDto>().ReverseMap();
             profile.CreateMap<Shop, ShopDto>()
                 .ForMember(shopDto => shopDto.ShopId,
                     opt => opt.MapFrom(shop => shop.ShopId))

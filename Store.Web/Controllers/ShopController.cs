@@ -10,6 +10,7 @@ namespace Store.Web.Controllers
         {
             var query = new GetShopQuery();
             var shopList = await Mediator.Send(query);
+
             return View(shopList);
         }
     }
