@@ -21,10 +21,10 @@
                     <th>Products</th>
                 </tr>
             </thead>
-            <tbody class="overout">
+            <tbody >
                 @foreach ( var r in Model.OrderBy(s => s.ShopName))
                 {
-                    <tr>
+                    <tr class="overout">
                         <td>@r.ShopName</td>
                         <td>@r.ShopAddress</td>
                         <td>@r.OpeningTime</td>

@@ -10,7 +10,7 @@
 <script src="~/css/style.css"></script>
 
 
-@*@section Scripts{ *@
+
 <script>
 $("tbody.overout")
     .hover(function() {
@@ -18,5 +18,10 @@ $("tbody.overout")
     }, function() {
         $(this).css("background-color","white");
     });
+    $("tr.overout")
+    .hover(function() {
+        $(this).css("background-color","#c2c6b3");
+    }, function() {
+        $(this).css("background-color","white");
+    });
 </script>
-@*}*@ 

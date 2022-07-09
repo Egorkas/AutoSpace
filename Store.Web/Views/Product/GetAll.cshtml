@@ -18,10 +18,10 @@
                     <th>Address</th>
                 </tr>
             </thead>
-            <tbody class="overout" >
+            <tbody>
                 @foreach ( var r in Model.OrderBy(s => s.ProductName))
                 {
-                    <tr>
+                    <tr class="overout">
                         <td>@r.ProductName</td>
                         <td>@r.Description</td>
                         <td><a asp-controller="Shop" asp-action="GetAll">Back To Shops</a></td>
