@@ -9,8 +9,8 @@ namespace Store.Application.Shops.Queries
         public Guid ShopId { get; set; }
         public string ShopName { get; set; }
         public string ShopAddress { get; set; }
-        public DateTime OpeningTime { get; set; }
-        public DateTime ClosingTime { get; set; }
+        public TimeOnly OpeningTime { get; set; }
+        public TimeOnly ClosingTime { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -22,9 +22,9 @@ namespace Store.Application.Shops.Queries
                 .ForMember(shopDto => shopDto.ShopAddress,
                     opt => opt.MapFrom(shop => shop.ShopAddress))
                 .ForMember(shopDto => shopDto.OpeningTime,
-                    opt => opt.MapFrom(shop => shop.OpeningTime))
+                    opt => opt.MapFrom(shop => TimeOnly.FromDateTime(shop.OpeningTime)))
                 .ForMember(shopDto => shopDto.ClosingTime,
-                    opt => opt.MapFrom(shop => shop.ClosingTime));
+                    opt => opt.MapFrom(shop => TimeOnly.FromDateTime(shop.ClosingTime)));
         }
     }
 }
