@@ -32,8 +32,6 @@ namespace Store.Persistence
             };
             
             #endregion
-
-
             #region Add Shops
             var shop1 = new Shop
             {
@@ -62,8 +60,6 @@ namespace Store.Persistence
                         new { ProductId = Guid.Parse("09133C5E-9733-40F9-BED5-D485F27E448E"), ShopId = Guid.Parse("18DD943B-73BE-47C9-8A89-E440ACCB4A1D") }
                         );
                 });
-
-
             #endregion
             base.OnModelCreating(builder);
         }

@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Products";
 }
-html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
@@ -24,11 +23,15 @@ html>
                     <tr class="overout">
                         <td>@r.ProductName</td>
                         <td>@r.Description</td>
-                        <td><a asp-controller="Shop" asp-action="GetAll">Back To Shops</a></td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+     <div>
+         @using (Html.BeginForm("GetAll", "Shop", FormMethod.Get))
+         {
+             <button>Return to Products</button>
+         }
+    </div>
 </body>
-</html>

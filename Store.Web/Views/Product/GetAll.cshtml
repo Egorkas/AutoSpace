@@ -24,7 +24,6 @@
                     <tr class="overout">
                         <td>@r.ProductName</td>
                         <td>@r.Description</td>
-                        <td><a asp-controller="Shop" asp-action="GetAll">Back To Shops</a></td>
                     </tr>
                 }
             </tbody>
@@ -33,15 +32,4 @@
 </body>
 </html>
 
-
-@section Scripts{ 
-    <script>
-$("tbody.overout")
-    .hover(function() {
-        $(this).css("background-color","#c2c6b3");
-    }, function() {
-        $(this).css("background-color","white");
-    });
-    </script>
-} 
 
