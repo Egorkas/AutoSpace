@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="panel-body">
-        <h2>Here is a list of visitors' records!</h2>
+        <h2>Shops</h2>
         <table class="table table-sm table-striped table-bordered">
             <thead>
                 <tr>
@@ -21,15 +21,15 @@
                     <th>Products</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="overout">
                 @foreach ( var r in Model.OrderBy(s => s.ShopName))
                 {
                     <tr>
                         <td>@r.ShopName</td>
                         <td>@r.ShopAddress</td>
                         <td>@r.OpeningTime</td>
-                        <td>@r.ClosingTime</td>
-                        <td><a asp-controller="Product" asp-action="GetProductsByShopId" asp-route-Id="@r.ShopId">Product</a>d>
+                        <td >@r.ClosingTime</td>
+                        <td><a asp-controller="Product" asp-action="GetProductsByShopId" asp-route-Id="@r.ShopId">Product</a></td>
                     </tr>
                 }
             </tbody>
@@ -37,3 +37,18 @@
     </div>
 </body>
 </html>
+@section Scripts{ 
+    <script>
+        $(function () {
+            $.datetimepicker.setDateFormatter('moment');
+            $(".datetimefield").datetimepicker({
+                format: 'MM/DD/YYYY hh:mm A',
+                formatTime: 'h:mm A',
+                minDate: new Date(),
+                step: 30
+                
+            });
+        });
+    </script>
+
+} 
