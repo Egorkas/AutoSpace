@@ -1,0 +1,34 @@
+﻿@model List<ProductDto>
+@{
+    ViewData["Title"] = "Products";
+}
+html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <title>Products</title>
+</head>
+<body>
+    <div class="panel-body">
+        <h2>Products</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ( var r in Model.OrderBy(s => s.ProductName))
+                {
+                    <tr class="overout">
+                        <td>@r.ProductName</td>
+                        <td>@r.Description</td>
+                        <td><a asp-controller="Shop" asp-action="GetAll">Back To Shops</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
