@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Shops";
 }
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
@@ -36,19 +35,3 @@
         </table>
     </div>
 </body>
-</html>
-@section Scripts{ 
-    <script>
-        $(function () {
-            $.datetimepicker.setDateFormatter('moment');
-            $(".datetimefield").datetimepicker({
-                format: 'MM/DD/YYYY hh:mm A',
-                formatTime: 'h:mm A',
-                minDate: new Date(),
-                step: 30
-                
-            });
-        });
-    </script>
-
-} 
