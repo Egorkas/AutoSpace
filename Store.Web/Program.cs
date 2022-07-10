@@ -1,3 +1,4 @@
+using StackExchange.Profiling.Storage;
 using Store.Application;
 using Store.Application.Common.Mappings;
 using Store.Application.Interfaces;
@@ -8,6 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
+builder.Services.AddMiniProfiler(
+      options =>
+      {
+          // (Optional) Path to use for profiler URLs, default is /mini-profiler-resources
+          options.RouteBasePath = "/profiler";
+          (options.Storage as MemoryCacheStorage).CacheDuration = TimeSpan.FromMinutes(60);
+          // (Optional) Control which SQL formatter to use, InlineFormatter is the default
+          options.SqlFormatter = new StackExchange.Profiling.SqlFormatters.InlineFormatter();
+      }).AddEntityFramework();
 builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
@@ -42,7 +52,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseMiniProfiler();
 app.UseRouting();
 
 //app.UseAuthorization();
