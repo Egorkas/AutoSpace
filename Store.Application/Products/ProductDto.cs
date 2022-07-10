@@ -14,11 +14,9 @@ namespace Store.Application.Products
         public Guid ProductId { get; set; }
         public string ProductName { get; set; }
         public string? Description { get; set; }
-        //public IList<Shop> Shops { get; set; }
 
         public void Mapping(Profile profile)
         {
-            //profile.CreateMap<Product, ProductDto>().ReverseMap();
             profile.CreateMap<Product, ProductDto>()
                 .ForMember(productDto => productDto.ProductId,
                     opt => opt.MapFrom(product => product.ProductId))
