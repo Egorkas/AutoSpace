@@ -4,9 +4,18 @@ using Store.Application.Common.Mappings;
 using Store.Application.Interfaces;
 using Store.Persistence;
 using System.Reflection;
+using Serilog;
+using Serilog.Events;
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+    .WriteTo.File("StoreWebLog-.txt", rollingInterval:
+        RollingInterval.Day)
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddMiniProfiler(
@@ -39,7 +48,7 @@ using(var scope = app.Services.CreateScope())
     }
     catch(Exception exception)
     {
-
+        Log.Fatal(exception, "An error occured while app initialization");
     }
 }
 
@@ -49,14 +58,10 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseMiniProfiler();
 app.UseRouting();
-
-//app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}");
